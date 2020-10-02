@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const questions: Quiz[] = await getQuizService(5, "easy");
+      const questions: Quiz[] = await getQuizService(3, "easy");
       setQuiz(questions);
       // console.log(questions);
     };
@@ -39,7 +39,6 @@ function App() {
       setCurrentQuestion(++currentQuestion);
     else {
       setCurrentQuestion(0);
-      setScore(0);
       setStartQuiz(false);
       setShowresult(true);
     }
@@ -49,12 +48,15 @@ function App() {
     return <Loading />;
   }
   if (showResult) {
+    console.log(score, quiz);
+
     return (
       <div className="result-container">
         <Result />
         <h3>Result</h3>
         <p>
-          "Quiz completed! Your Final score is {score} out of {quiz.length}"
+          " Quiz completed! Your Final score is {score} out of
+          {quiz.length}"
         </p>
         <Button
           variant="contained"

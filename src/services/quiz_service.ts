@@ -11,8 +11,9 @@ export const getQuizService = async (
   const res = await fetch(
     `https://opentdb.com/api.php?amount=${totalQuestion}&difficulty=${level}`
   );
+  // Below results are comming from api, i destructure it.
   let { results } = await res.json();
-  console.log(results);
+  console.log(res);
 
   let quiz: Quiz[] = results.map((quesObj: QuestionType) => {
     return {
