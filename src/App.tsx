@@ -55,8 +55,8 @@ function App() {
         <Result />
         <h3>Result</h3>
         <p>
-          " Quiz completed! Your Final score is {score} out of
-          {quiz.length}"
+          " Quiz completed! Your Final score is <strong>{score}</strong> out of
+          <strong> {quiz.length}</strong>"
         </p>
         <Button
           variant="contained"
@@ -84,6 +84,8 @@ function App() {
         option={quiz[currentQuestion].options}
         question={quiz[currentQuestion].question}
         callback={handleSubmit}
+        totalQuestion={quiz.length}
+        currentQuestion={currentQuestion}
       />
     </div>
   );

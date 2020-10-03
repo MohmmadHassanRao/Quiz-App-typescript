@@ -20,4 +20,6 @@ export type questionPropTypes = {
   question: string;
   option: string[];
   callback: (e: React.FormEvent<EventTarget>, ans: string) => void;
+  currentQuestion: number;
+  totalQuestion: number;
 };

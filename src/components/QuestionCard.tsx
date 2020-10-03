@@ -14,12 +14,13 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       justifyContent: "center",
       background: "rgb(226,141,118)",
+      width: "60vw",
 
       "& > *": {
         margin: theme.spacing(1),
-        padding: theme.spacing(3),
-        width: theme.spacing(100),
-        height: theme.spacing(40),
+        padding: theme.spacing(4),
+
+        height: theme.spacing(55),
       },
     },
     heading: {
@@ -32,14 +33,17 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "1.2em",
       width: "100%",
     },
+
     quizOptions: {
       paddingTop: "20px",
+      minHeight: "50px",
     },
     btn: {
-      position: "relative",
-      bottom: "0px",
-      marginTop: "30px",
-      width: "100%",
+      position: "fixed",
+      top: "80%",
+      left: "50%",
+      transform: "translate(-50%,-50%)",
+      width: "55%",
     },
     quizRadio: {
       marginRight: "10px",
@@ -51,6 +55,8 @@ const QuestionCard: React.FC<questionPropTypes> = ({
   question,
   option,
   callback,
+  currentQuestion,
+  totalQuestion,
 }) => {
   // console.log(question, option, callback);
   let [selectedAns, setSelectedAns] = useState("");
@@ -65,6 +71,9 @@ const QuestionCard: React.FC<questionPropTypes> = ({
       <div className={classes.root}>
         <Paper elevation={5}>
           <div className={classes.question}>
+            <p style={{ textAlign: "center", marginBottom: "10px" }}>
+              Question : {currentQuestion}/{totalQuestion}
+            </p>
             <h3>{question}</h3>
           </div>
           <form
